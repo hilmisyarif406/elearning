@@ -15,4 +15,5 @@ untuk bisa masuk ke dalam halaman login admin
 ketikkan url contoh : "localhost/e-learning_v0/admin"
 
 username : admin
+
 password : admin
