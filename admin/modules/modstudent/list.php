@@ -1,0 +1,48 @@
+<?php
+		check_message(); 
+		?> 
+<style type="text/css">
+	#example {
+		white-space: nowrap;
+	}
+</style> 
+      <div class="module-head"> 
+            <h1 class="page-header">List of Student <a href="index.php?view=add" class="btn btn-primary">New</a></h1> </h1>
+       		 
+       		</div> 
+			    <form action="controller.php?action=delete" Method="POST">  					
+				<table id="example"  class="datatable-1 table table-striped table-bordered table-hover" cellspacing="0" style="font-size:12px" >
+					
+				  <thead>
+				  	<tr>  
+				  		  <th>Student ID</th>
+				  		  <th>Name</th>
+				  		  <th>Email</th> 
+				  		  <th>Phone</th>
+				  		  <th width="10%">Action</th>   
+				  		 
+				  	</tr>	
+				  </thead> 	
+
+			  <tbody>
+				  	<?php 
+				  		$query = "SELECT * FROM `tblstudent`";
+				  		$mydb->setQuery($query);
+				  		$cur = $mydb->loadResultList();
+
+						foreach ($cur as $result) {
+				  		echo '<tr>';  
+				  		echo '<td>'.$result->StudentIDs.'</td>';
+				  		echo '<td>'. $result->Fname.'</td>'; 
+				  		echo '<td>'.$result->Email. '</td>'; 
+				  		echo '<td>'. $result->Phone.'</td>';
+				  		echo '<td > <a title="Edit" href="index.php?view=edit&id='.$result->StudentID.'" class="btn btn-primary btn-xs" >Edit</a>
+				  					 <a title="Delete" href="controller.php?action=delete&id='.$result->StudentID.'" class="btn btn-danger btn-xs" >Delete</a>
+				  					 </td>'; 
+			  		 
+				  		echo '</tr>';
+				  	} 
+				  	?>
+				  </tbody> 
+				</table> 
+				</form> 
